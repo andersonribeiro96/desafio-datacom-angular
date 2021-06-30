@@ -1,0 +1,60 @@
+<div class="container-fluid">
+
+    <div>
+        <nav class="navbar-dark bg-dark text-center mt-2">
+            <a class="navbar-brand" href="#">Datacom</a>
+        </nav>
+    </div>
+
+
+    <div class="container-fluid mt-4">
+        <div class="alert alert-success" role="alert" *ngIf="sucesso">
+            {{sucesso}}
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="error">
+            {{error}}
+        </div>
+    </div>
+
+    <div class="row container-fluid">
+        <div class="col-sm-6">
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true">Nome do produto</li>
+                <li class="list-group-item">{{nome}}</li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true">Versão do produto</li>
+                <li class="list-group-item">{{versao}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row container-fluid mt-4 mb-4">
+        <div class="col-sm-12">
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true">Procurar Feature</li>
+                <li class="list-group-item">
+                    <div class="form-floating mb-3 mt-4">
+                        <input type="text" class="form-control" id="floatingInput" [(ngModel)]="feature">
+                        <label for="floatingInput">Procurar Feature</label>
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)="buscarFeature()">Procurar</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <footer class="py-4 bg-light mt-auto">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center justify-content-between small">
+                <div class="text-muted">Copyright &copy; Datacom 2020</div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+
