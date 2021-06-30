@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AppDesafioService} from "./app-desafio.service";
-import {Observable} from "rxjs";
+
 
 @Component({
   selector: 'app-root',
@@ -34,9 +34,26 @@ export class AppComponent implements OnInit {
   }
 
   buscarFeature(){
-    return this.service.buscarFeature(this.feature).subscribe(value => this.sucesso = value, error => this.error = error.error);
+    return this.service.buscarFeature(this.feature).subscribe(value => {
+      this.featureSucesso(value)
+    }, error => {
+      this.featureError(error.error);
+    })
+  };
+
+  featureSucesso(value: string){
+    this.sucesso = value;
+    this.error = null;
   }
 
+  featureError(value: string){
+    this.error = value;
+    this.sucesso = null;
+  }
+
+  disableButton(){
+    return this.feature.length == 0;
+  }
 
 
 
